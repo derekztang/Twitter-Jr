@@ -1,5 +1,10 @@
 get '/' do
-  erb :index
+  if current_user
+    @user = User.where(username: params[:username]).first
+    erb :user_index
+  else
+    erb :index
+  end
   #homepage will contain links to sign up or sign in
 end
 
@@ -15,7 +20,7 @@ post '/users/new' do
     session[:id] = @user.id
     redirect '/'
   else
-    erb: sign_up
+    erb :sign_up
   end
 end
 
@@ -33,6 +38,12 @@ post '/sessions/new' do
     redirect '/sessions/new'
   end
 end
+
+delete '/sessions/logout' do
+  session[:id] = nil
+  redirect '/'
+end
+
 
 
 
