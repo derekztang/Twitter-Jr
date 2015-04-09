@@ -1,0 +1,7 @@
+<% @tweet.each do |tweet| %>
+<%= tweet.content %>
+<form action='/tweets/<%= tweet.id %>' method='post'>
+  <input type='hidden' name='_method' value="delete">
+  <input type='submit' value='delete'>
+</form>
+<% end %>
