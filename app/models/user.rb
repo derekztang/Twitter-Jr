@@ -9,8 +9,10 @@ class User < ActiveRecord::Base
 	has_many :followers, through: :follower_relationships, source: "follower"
 	has_many :followees, through: :followee_relationships, source: "followee"
 
-	# validates :username, presence: true
-	# validates :username, uniqueness: true
+	validates :username, presence: true,
+                       uniqueness: true
+  validates :password_hash, presence: true
+
   include BCrypt
 
   def password
