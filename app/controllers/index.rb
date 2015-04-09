@@ -4,19 +4,19 @@ get '/' do
 end
 
 get '/users/new' do
-  # @user = User.new
+  @user = User.new
   erb :sign_up
 end
 
 post '/users/new' do
   #will add user to db
-  # @user = User.new(params[:user])
-  #if @user.save
-    #session[:id] = @user.id
-    #redirect '/'
-  # else
-    #erb: sign_up
-  #end
+  @user = User.new(params[:user])
+  if @user.save
+    session[:id] = @user.id
+    redirect '/'
+  else
+    erb: sign_up
+  end
 end
 
 get '/sessions/new' do
