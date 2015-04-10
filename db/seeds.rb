@@ -1,6 +1,11 @@
 require 'faker'
+test = User.create(username: "testtest", password: "test", user_bio: "hope this works!", user_bio_picture: "#")
 
 5.times do
-  user = User.create(username: Faker::Name.name, password: "test")
-  5.times {user.tweets.create(content: Faker::Lorem.sentence)}
+  User.create(username: Faker::Name.first_name, password: "test", user_bio: Faker::Company.bs, user_bio_picture: "#")
 end
+
+User.all.each do |user|
+  user.tweets << Tweet.create(content: Faker::Lorem.sentence)
+end
+

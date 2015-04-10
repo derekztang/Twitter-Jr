@@ -32,7 +32,8 @@ class User < ActiveRecord::Base
         followee_tweets << tweet
       end
     end
-    followee_tweets.sort! { |x,y| x.created_at <=> y.created_at} #sorted by date
+    followee_tweets
+    # p followee_tweets.sort! { |x,y| x.created_at <=> y.created_at} #sorted by date
   end
 
 end
