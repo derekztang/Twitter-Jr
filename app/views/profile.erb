@@ -1,6 +1,9 @@
 <div class="container">
   <div class="bio">
     <h1 class="username"><%= @user.username %></h1>
+    <form action="/users/<%= @user.id %>/follow" method="post">
+      <input type="submit" value="follow" />
+    </form>
     <p>Bio: <%= @user.user_bio %></p>
     <img src="<%=@user.user_bio_picture%>">
   </div>
