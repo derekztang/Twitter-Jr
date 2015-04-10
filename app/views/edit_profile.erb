@@ -1,0 +1,8 @@
+<div class="container">
+  <form action="/users/<%= @user.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="text" name="user_bio" value="Bio"><br>
+    <input type="text" name="user_bio_picture" value="Picture URL">
+    <input type='submit' value='Edit Profile'>
+  </form>
+</div>

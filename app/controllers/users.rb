@@ -26,3 +26,15 @@ get '/users/:id' do
   erb :profile
 end
 
+get '/users/:id/edit' do
+  @user = User.find(params[:id])
+  erb :edit_profile
+end
+
+put '/users/:id' do
+  @user = User.find(params[:id])
+  @user.user_bio = params[:user_bio]
+  @user.user_bio_picture = params[:user_bio_picture]
+  @user.save
+  redirect "/users/#{@user.id}"
+end
