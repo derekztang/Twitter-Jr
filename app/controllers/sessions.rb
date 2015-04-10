@@ -8,7 +8,7 @@ post '/sessions/new' do
   @user = User.where(username: params[:username]).first_or_initialize
   if @user.persisted? && @user.password == params[:password]
     session[:id] = @user.id
-    redirect '/'
+    redirect "/users/#{@user.id}/feed"
   else
     # redirect '/sessions/new'
     status 401
