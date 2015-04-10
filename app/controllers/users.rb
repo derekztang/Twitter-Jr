@@ -20,3 +20,8 @@ get '/users/:id/feed' do
   # erb :
 end
 
+get '/users/:id' do
+  @user = User.find(params[:id])
+  erb :profile
+end
+
