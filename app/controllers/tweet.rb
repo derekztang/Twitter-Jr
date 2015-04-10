@@ -4,7 +4,7 @@ end
 
 post '/tweets' do
   @new_tweet = Tweet.create!(content: params[:content])
-  redirect '/user/:id/feed'
+  redirect "/users/#{session[:id]}/feed"
 end
 
 get '/tweets/:id/edit' do
