@@ -79,6 +79,16 @@ h1 {
 
 }
 
+.img_resize {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
 
+/* resize images */
+.img_resize img {
+    width: 100%;
+    height: auto;
+}
 
 

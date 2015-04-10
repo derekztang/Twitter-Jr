@@ -5,7 +5,9 @@
       <input type="submit" value="follow" />
     </form>
     <p>Bio: <%= @user.user_bio %></p>
-    <img src="<%=@user.user_bio_picture%>">
+      <div class="img_resize">
+        <img src="<%=@user.user_bio_picture%>">
+      </div>
     <form action="/users/<%= @user.id%>/edit" method="get">
       <input type="submit" value="Edit Profile">
     </form>
