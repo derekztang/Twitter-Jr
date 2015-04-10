@@ -6,6 +6,9 @@
     </form>
     <p>Bio: <%= @user.user_bio %></p>
     <img src="<%=@user.user_bio_picture%>">
+    <form action="/users/<%= @user.id%>/edit" method="get">
+      <input type="submit" value="Edit Profile">
+    </form>
   </div>
   <div>
     <% @tweets.each do |tweet| %>
