@@ -37,6 +37,7 @@ put '/users/:id' do
   @user.user_bio = params[:user_bio]
   @user.user_bio_picture = params[:user_bio_picture]
   @user.save
+  redirect "/users/#{@user.id}"
 end
 
 get '/users/:id/followees' do
