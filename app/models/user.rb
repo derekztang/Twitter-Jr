@@ -23,4 +23,16 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
+
+  def followee_tweets
+    # @followees = @user.followees
+    followee_tweets = []
+    self.followees.each do |followee|
+      followee.tweets.each do |tweet|
+        followee_tweets << tweet
+      end
+    end
+    followee_tweets.sort! { |x,y| x.created_at <=> y.created_at} #sorted by date
+  end
+
 end
