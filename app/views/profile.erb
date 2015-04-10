@@ -1,11 +1,16 @@
 <div class="container">
-  <h1><%= @user.username %></h1>
-  <form action="/users/<%= @user.id %>/follow" method="post">
-    <input type="submit" value="follow" />
-  </form>
-  <p><%= @user.user_bio %></p>
-  <img src="<%=@user.user_bio_picture%>">
-  <% @tweets.each do |tweet| %>
-  <p><%= tweet.content %></p>
-    <% end %>
+  <div class="bio">
+    <h1 class="username"><%= @user.username %></h1>
+    <form action="/users/<%= @user.id %>/follow" method="post">
+      <input type="submit" value="follow" />
+    </form>
+    <p>Bio: <%= @user.user_bio %></p>
+    <img src="<%=@user.user_bio_picture%>">
+  </div>
+  <div>
+    <% @tweets.each do |tweet| %>
+    <div class="tweet_username">
+      <div class="tweet"><%= tweet.content %></div>
+    </div>
+      <% end %>
 </div>
