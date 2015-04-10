@@ -1,0 +1,67 @@
+body {
+  background-image: url(../imgs/upfeathers.png);
+  background-repeat: repeat-x repeat-y;
+}
+
+.container {
+  text-align: center;
+  /*border: 1px solid red;*/
+  margin: 50px auto;
+  width: 960px;
+  padding-top: 100px
+}
+
+.button {
+  font-size: 20px;
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+}
+
+h1 {
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+/* Main Page */
+
+#intro {
+  font-size: 75px;
+}
+
+#main {
+  width: 100px;
+}
+
+/* Followee Feed */
+#feed_title {
+  font-size: 45px;
+}
+.followee {
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.tweet_username {
+  border: 2px solid black;
+  margin: 20px;
+  padding: 20px;
+  font-size: 20px;
+  background: white;
+}
+
+
+
+
+
+
+
