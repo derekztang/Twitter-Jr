@@ -19,8 +19,8 @@
 </head>
 <body>
   <% if current_user %>
-  <h3>Hello, <a href="/users/<%= @current_user.id %>"><%= @current_user.username %></a></h3>
-  <form action="/sessions/logout" method="post">
+  <h3 class="center">Hello, <a href="/users/<%= @current_user.id %>"><%= @current_user.username %></a></h3>
+  <form class="center" action="/sessions/logout" method="post">
     <input type="hidden" name="_method" value="delete" />
     <input type="submit" value="Logout" />
   </form>
