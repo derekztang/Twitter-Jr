@@ -17,12 +17,13 @@ end
 
 get '/users/:id/feed' do
   @user = User.where(id: params[:id]).first
-  p @followee_tweets = @user.followee_tweets
+  @followee_tweets = @user.followee_tweets
   erb :"user/followee_feed" #only display the newest 20
 end
 
 get '/users/:id' do
   @user = User.find(params[:id])
+  @tweets = Tweet.where(user_id: params[:id])
   erb :profile
 end
 
@@ -36,5 +37,16 @@ put '/users/:id' do
   @user.user_bio = params[:user_bio]
   @user.user_bio_picture = params[:user_bio_picture]
   @user.save
+end
+
+get '/users/:id/followees' do
+  @user = User.find(params[:id])
+  @followees = @user.followees
+  erb :"user/followees"
+end
+
+post '/users/:id/follow' do
+  @user = User.find(params[:id])
+  @user.followers << User.find(session[:id])
   redirect "/users/#{@user.id}"
 end
