@@ -27,3 +27,14 @@ get '/users/:id' do
   erb :profile
 end
 
+get '/users/:id/followees' do
+  @user = User.find(params[:id])
+  @followees = @user.followees
+  erb :"user/followees"
+end
+
+post '/users/:id/follow' do
+  @user = User.find(params[:id])
+  @user.followers << User.find(session[:id])
+  redirect "/users/#{@user.id}"
+end
