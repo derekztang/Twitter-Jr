@@ -3,7 +3,8 @@ get '/tweets/new' do
 end
 
 post '/tweets' do
-  @new_tweet = Tweet.create!(content: params[:content], user_id: current_user.id)
+  @new_tweet = Tweet.create!(content: params[:content],
+    user_id: current_user.id)
   redirect "/users/#{current_user.id}/feed"
 end
 
