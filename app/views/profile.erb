@@ -2,4 +2,7 @@
   <h1><%= @user.username %></h1>
   <p><%= @user.user_bio %></p>
   <img src="<%=@user.user_bio_picture%>">
+  <% @tweets.each do |tweet| %>
+  <p><%= tweet.content %></p>
+    <% end %>
 </div>

@@ -1,8 +1,14 @@
 <h1> Your feed </h1>
+<div>
+  <form action='/tweets' method='post'>
+  <input type='text' name='content'>
+  <input type='submit' value='tweet'>
+</form>
+</div>
 
 <div class = "followee">
   <% @followee_tweets.each do |tweet| %>
-    <li><%= tweet.user.username %></li>
+    <li><a href="/users/<%= tweet.user.id %>"><%= tweet.user.username %></a></li>
     <li><%= tweet.content %></li>
   <% end %>
 </div>
