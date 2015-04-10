@@ -1,0 +1,5 @@
+<h1>People you're following!</h1>
+
+<% @followees.each do |followee| %>
+  <p><%= followee.username %></p>
+<%end %>
