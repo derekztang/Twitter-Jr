@@ -1,0 +1,6 @@
+<div class = "followee">
+  <% @followee_tweets.each do |tweet| %>
+    <li><%= tweet.user.username %></li>
+    <li><%= tweet.content %></li>
+  <% end %>
+</div>

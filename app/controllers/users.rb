@@ -15,9 +15,10 @@ post '/users/new' do
   end
 end
 
-
 get '/users/:id/feed' do
-  # erb :
+  @user = User.where(id: params[:id]).first
+  @followee_tweets = @user.followee_tweets
+  erb :"user/followee_feed" #only display the newest 20
 end
 
 get '/users/:id' do

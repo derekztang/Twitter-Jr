@@ -6,19 +6,29 @@ describe User do
     User.create! username: name, password: 'password'
   end
 	it "should have followers and followees" do
-		bob = create_user('bob')
-		laura = create_user('laura')
-		cam = create_user('cam')
-		joe = create_user('joe')
-		pete = create_user('pete')
+		bob = User.create!
+		laura = User.create!
+		cam = User.create!
+		joe = User.create!
+		pete = User.create!
 
-    bob.followers << laura
-    expect(bob.followers).to include laura
-    expect(laura.followees).to include bob
+    bob.followees << laura
+    bob.followees << cam
+    bob.followers << joe
+    bob.followers << pete
+    bob.save!
 
-    bob.followers.delete(laura)
-    expect(bob.followers).to_not include laura
-    expect(laura.followees).to_not include bob
+    bob.reload
+
+    expect(bob.followees).to include laura
+    expect(bob.followees).to include cam
+    expect(bob.followers).to include joe
+    expect(bob.followers).to include pete
+
+    expect(laura.followers).to include bob
+    expect(cam.followers).to include bob
+    expect(joe.followees).to include bob
+    expect(pete.followees).to include bob
 	end
 
   it "should have many tweets" do
@@ -30,5 +40,4 @@ describe User do
     expect(tweet1.content).to eq "hi im bob"
   end
 end
-
 
