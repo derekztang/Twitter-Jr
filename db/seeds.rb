@@ -9,3 +9,6 @@ User.all.each do |user|
   user.tweets << Tweet.create(content: Faker::Lorem.sentence)
 end
 
+User.all.each do |user|
+  test.followees << user
+end
