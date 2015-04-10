@@ -1,8 +1,13 @@
-<h1> Your feed </h1>
+<div class="container">
+  <h1 id="feed_title"> Your feed </h1>
 
-<div class = "followee">
-  <% @followee_tweets.each do |tweet| %>
-    <li><%= tweet.user.username %></li>
-    <li><%= tweet.content %></li>
-  <% end %>
+  <div class = "followee">
+    <% @followee_tweets.each do |tweet| %>
+      <div class="tweet_username">
+        <div class="username left"><%= tweet.user.username %></div>
+        <div class="tweet right"><%= tweet.content %></div>
+        <div class="clear"></div>
+      </div>
+    <% end %>
+  </div>
 </div>
