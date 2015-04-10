@@ -21,5 +21,8 @@ get '/users/:id/feed' do
   erb :"user/followee_feed" #only display the newest 20
 end
 
-
+get '/users/:id' do
+  @user = User.find(params[:id])
+  erb :profile
+end
 
